@@ -54,12 +54,17 @@ For Spring Security with session-based authentication, you store users in your d
 #### Bugs We Handled
 
 Bug 1: Thymeleaf th:if syntax error
+
 Issue: th:if=@{username} caused template parsing error
+
 Fix: Wrap value in quotes → th:if="@{username}"
 
 Bug 2: Login required twice
+
 Issue: First login redirected back to login page, needing second login
+
 Root cause: /login was not excluded from security filters
+
 Fix: Added .requestMatchers("/login").permitAll() in SecurityConfig
 
 
